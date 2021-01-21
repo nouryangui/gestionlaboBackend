@@ -47,7 +47,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 		.requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
 
 		   // must be an admin if trying to access admin area (authentication is also required here)
-		   .antMatchers(HttpMethod.POST,"/member-service/**").hasAuthority("admin")
+		   .antMatchers(HttpMethod.POST,"/member-service/**").hasRole("admin")
 		   // Any other request must be authenticated
 		   .anyRequest().authenticated(); 
 	}
